@@ -15,6 +15,7 @@
    }
    .header .icons {
      gap:4px;
+     
     
    }
    .header .icons i{
