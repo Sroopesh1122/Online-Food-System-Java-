@@ -43,5 +43,10 @@
   font-size: 0.7rem;
   color: green !important;
 }
+
+body{
+ width: 100%; 
+}
+
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
