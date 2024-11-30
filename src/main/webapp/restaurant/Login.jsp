@@ -75,7 +75,7 @@ body {
   <section class="center signin-section">
     <form action="" method="post" id="signinForm">
     
-			<h4 class="text-center mb-3">Restaurant Login</h4>
+			<h4 class="text-center mb-3">Restaurants Login</h4>
 			
 			<div class="form-group mb-1">
 				<label for="email">Email</label> 
