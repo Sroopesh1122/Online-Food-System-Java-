@@ -43,8 +43,9 @@
  color: white;
 
 }
-.home-section .overlay button {
+.home-section .overlay a {
   padding: 5px 10px;
+  text-decoration:none;
   border-radius: 10px;
   border: none;
   background: #e63946;
@@ -60,10 +61,7 @@
  .home-section .overlay h1{
   font-size: 1rem;
  }
- 
 }
-
-
 </style>
 
 </head>
@@ -76,7 +74,7 @@
     
     <div class="overlay">
       <h1>Welcome Owner</h1>
-      <button type="button">Add Your Food</button>
+      <a href="<%= request.getContextPath()+"/restaurant/AddFood.jsp"%>" >Add Your Food</a>
     </div>
     
  </section>

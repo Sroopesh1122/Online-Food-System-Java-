@@ -158,10 +158,10 @@
 	 <div class="menu-list">
 	     
 	     <ul>
-	       <li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Home") ? "active":"" %>">Home</li>
-			<li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active":"" %>" >Food Menu</li>
-			<li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Orders") ? "active":"" %>">Orders</li>
-			<li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Reviews") ? "active":"" %>">Reviews</li>
+	       <a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Home") ? "active":"" %>">Home</li></a>
+			<a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active":"" %>" >Food Menu</li></a>
+			<a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Orders") ? "active":"" %>">Orders</li></a>
+			<a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Reviews") ? "active":"" %>">Reviews</li></a>
 	     </ul>
 	     <button type="button">Logout</button>
 	 </div>
