@@ -46,15 +46,11 @@ $(document).ready(function() {
 		}
 	})
 
-	
-	
 	$("#password").on('input', function() {
 		if (check) {
 			checkPassword()
 		}
 	})
-
-
 
     $("#login-btn").on('click',function(){
 		check = true;
