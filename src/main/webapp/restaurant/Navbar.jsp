@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style>
+
 .nav-bar {
 	display: flex;
 	justify-content: space-between;
@@ -42,11 +43,16 @@
 	gap: 10px;
 }
 
-.nav-bar .menu ul li {
-	list-style: none;
+.nav-bar .menu ul a {
+    color:white;
 	padding: 2px 5px;
 	border-radius: 8px;
 	cursor: pointer;
+	text-decoration: none;
+}
+
+.nav-bar .menu ul li {
+	list-style: none;
 }
 
 .nav-bar .menu ul .active {
@@ -54,13 +60,12 @@
 	color: #e63946;
 }
 
-
 .desktop-nav {
 	display: flex;
 }
 
 .mobile-nav {
-    width: 0vw;
+	width: 0vw;
 	height: 100vh;
 	position: absolute;
 	top: 0;
@@ -69,69 +74,75 @@
 	color: white;
 	display: none;
 }
-.fa-bars{
-	 display: none;
-	 
- }
+
+.fa-bars {
+	display: none;
+}
 
 @media ( max-width :768px) {
 	.desktop-nav {
-		display:none;
+		display: none;
 	}
-	.mobile-nav{
-	 display: block;
-	 overflow: hidden;
-	 transition :width 0.3s;
-	 padding: 20px 0px;
-	 z-index: 999;
+	.mobile-nav {
+		display: block;
+		overflow: hidden;
+		transition: width 0.3s;
+		padding: 20px 0px;
+		z-index: 999;
 	}
-	.mobile-nav .menu-list{
-	 width: 100%;
-	 height: 100%;
-	 padding: 30px;
-	 display: flex;
-	 flex-direction: column;
-	 align-items: center;
+	.mobile-nav .menu-list {
+		width: 100%;
+		height: 100%;
+		padding: 30px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 	.mobile-nav .menu-list button {
-	  background: white;
-	  margin:10px auto;
-	  padding: 4px 8px;
-	  width:70%;
-	  border-radius: 10px;
-	  border: none;
-	  font-size: 0.96rem;
+		background: white;
+		margin: 10px auto;
+		padding: 4px 8px;
+		width: 70%;
+		border-radius: 10px;
+		border: none;
+		font-size: 0.96rem;
 	}
-	.mobile-nav .menu-list ul{
-	 padding: 0px;
+	.mobile-nav .menu-list ul {
+		padding: 0px;
+		width: 90%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		gap:20px;
 	}
-	.mobile-nav .menu-list ul li{
-	 list-style: none;
-	 margin: 10px 0px;
-	 padding: 4px 8px;
-	 white-space:nowrap;
-	 text-align: center;
+	.mobile-nav .menu-list ul a{
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		width: fit-content;
+		padding: 5px 8px;
 	}
 	.mobile-nav .menu-list ul .active{
 	 background: white;
-	 border-radius: 10px;
-	 color:  #e63946;
-	 
+	 border-radius: 9px;
+	 color: #e63946;
 	}
-	
-	.fa-arrow-right{
-	  cursor: pointer;
+	.mobile-nav .menu-list ul a li {
+		list-style: none;
 	}
-	
-	.fa-bars{
-	 display: block;
-	 cursor: pointer;
+	.fa-arrow-right {
+		cursor: pointer;
 	}
-	.open-mobile-nav{
-	 width: 50vw;
+	.fa-bars {
+		display: block;
+		cursor: pointer;
+	}
+	.open-mobile-nav {
+		width: 50vw;
 	}
 }
-
 </style>
 
 <nav class="nav-bar">
@@ -142,44 +153,44 @@
 
 	<div class="menu center desktop-nav">
 		<ul class="center">
-			<li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Home") ? "active":"" %>">Home</li>
-			<li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active":"" %>" >Food Menu</li>
-			<li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Orders") ? "active":"" %>">Orders</li>
-			<li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Reviews") ? "active":"" %>">Reviews</li>
+			<a href="<%=request.getContextPath() + "/restaurant/Home.jsp"%>" class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Home") ? "active" : ""%>" ><li >Home</li></a>
+			<a class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active" : ""%>" ><li >Food Menu</li></a>
+			<a class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Orders") ? "active" : ""%>"><li >Orders</li></a>
+			<a class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Reviews") ? "active" : ""%>"><li >Reviews</li></a>
 		</ul>
 
 		<button type="button" class="custom-btn">Logout</button>
 	</div>
-	
+
 	<i class="fa-solid fa-bars" id="menu-icon"></i>
-	
+
 	<div class="mobile-nav ">
-	 <span class="p-2"><i class="fa-solid fa-arrow-right" id="menu-close-icon"></i></span>
-	 <div class="menu-list">
-	     
-	     <ul>
-	       <a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Home") ? "active":"" %>">Home</li></a>
-			<a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active":"" %>" >Food Menu</li></a>
-			<a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Orders") ? "active":"" %>">Orders</li></a>
-			<a href=""><li class="<%= request.getAttribute("menu").toString().equalsIgnoreCase("Reviews") ? "active":"" %>">Reviews</li></a>
-	     </ul>
-	     <button type="button">Logout</button>
-	 </div>
+		<span class="p-2"><i class="fa-solid fa-arrow-right"
+			id="menu-close-icon"></i></span>
+		<div class="menu-list">
+
+			<ul>
+				<a href="" class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Home") ? "active" : ""%>" ><li >Home</li></a>
+				<a href="" class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active" : ""%>" ><li >Food Menu</li></a>
+				<a href="" class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Orders") ? "active" : ""%>" ><li >Orders</li></a>
+				<a href="" class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Reviews") ? "active" : ""%>" ><li >Reviews</li></a>
+			</ul>
+			<button type="button">Logout</button>
+		</div>
 	</div>
 </nav>
 <script type="text/javascript">
- let openMenu = false;
+	let openMenu = false;
 
-  $("#menu-icon").on('click',function(){
-	$(".mobile-nav").addClass("open-mobile-nav")  
-	  
-  })
-  
-  $("#menu-close-icon").on('click',function(){
-		$(".mobile-nav").removeClass("open-mobile-nav")  
-		  
-	  })
+	$("#menu-icon").on('click', function() {
+		$(".mobile-nav").addClass("open-mobile-nav")
 
+	})
+
+	$("#menu-close-icon").on('click', function() {
+		$(".mobile-nav").removeClass("open-mobile-nav")
+
+	})
 </script>
 
 
