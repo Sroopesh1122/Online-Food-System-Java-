@@ -27,6 +27,20 @@
 	outline: none !important;
 }
 
+.animte-spin{
+  animation: spin 1s infinite ease-in-out;
+}
+
+ @keyframes spin {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(360deg);
+        }
+        
+    }
+
 .center{
   display: flex;
   justify-content: center;
@@ -43,6 +57,9 @@
   font-size: 0.7rem;
   color: green !important;
 }
+.hidden{
+ display: none;
+}
 
 body{
  width: 100%; 
@@ -50,3 +67,27 @@ body{
 
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+function showNotification(title, icon, message) {
+	Swal.fire({
+		icon: icon,
+		title: title,
+		text: message,
+		showClass: {
+			popup: `
+                                 animate__animated
+                                 animate__fadeInUp
+                                 animate__faster
+                               `
+		},
+		hideClass: {
+			popup: `
+                                  animate__animated
+                                  animate__fadeOutDown
+                                  animate__faster
+                                `
+		}
+	});
+}
+</script>

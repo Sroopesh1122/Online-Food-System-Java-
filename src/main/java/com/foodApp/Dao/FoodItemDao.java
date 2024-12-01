@@ -1,11 +1,12 @@
 package com.foodApp.Dao;
 
 import com.foodApp.Dto.FoodItem;
+import com.foodApp.Exception.CustomException;
 
 public interface FoodItemDao
 {
-  public FoodItem add(FoodItem foodItem);
-  public FoodItem update(FoodItem foodItem);
-  public FoodItem getOne(int foodId);
-  public boolean delete(int foodId);
+  public FoodItem add(FoodItem foodItem) throws CustomException;
+  public FoodItem update(FoodItem foodItem) throws CustomException ;
+  public FoodItem getOne(int foodId) throws CustomException ;
+  public boolean delete(int foodId) throws CustomException ;
 }

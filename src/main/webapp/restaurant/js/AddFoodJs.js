@@ -4,6 +4,7 @@ $(document).ready(function() {
 		$("#img-file").click()
 	})
 
+
 	for (let i = 0; i < $(".error").length; i++) {
 		const ele = $(".error")[i];
 		$(ele).hide()
@@ -146,7 +147,7 @@ function handleSubmit() {
 	checkImage();
 	if(!error)
 	{
-		alert("Ready to submit")
+		$("#addfoodForm").submit()
 	}
 }
 

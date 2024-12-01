@@ -4,4 +4,34 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<display-name>Login</display-name>
+  	<description></description>
+  	<servlet-class>com.foodApp.restaurant.RestaurantController.Login</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Register</servlet-name>
+  	<display-name>Register</display-name>
+  	<description></description>
+  	<servlet-class>com.foodApp.restaurant.RestaurantController.Register</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddFood</servlet-name>
+  	<display-name>AddFood</display-name>
+  	<description></description>
+  	<servlet-class>com.foodApp.restaurant.foodController.AddFood</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/restaurant/login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Register</servlet-name>
+  	<url-pattern>/restaurant/register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddFood</servlet-name>
+  	<url-pattern>/AddFood</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -182,13 +182,13 @@ textarea::-webkit-scrollbar-thumb:hover {
 		      </div>
 		      <div class="center">
 		       <button id="upload-btn">Upload Food Photo</button>
-		       <button id="upload-remove">Remove</button>
+		       <button id="upload-remove" class="hidden">Remove</button>
 		      </div>
 		 </div>
 		 
 		 <div class="form-wrapper">
 		      
-		      <form action="">
+		      <form action="<%= request.getContextPath()+"/food/add"%>" method="post" enctype="multipart/form-data" id="addfoodForm">
 		        
 		        <h5 class="text-center">Please Fill below detils</h5>
 		        
@@ -207,7 +207,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 			   </div>
 			   
 			   <div class="form-group mb-1">
-				  <label for="price">Price (INR)</label>
+				  <label for="price">Price(INR)</label>
 				   <input type="number" class="form-control" id="price" name="price">
 				  <div class="error hidden">Please enter valid price</div>
 			   </div>
@@ -227,12 +227,35 @@ textarea::-webkit-scrollbar-thumb:hover {
 		 </div>
 		</div>
 
-	</section>
-	<script type="text/javascript">
-		
-	</script>
-	
+	</section>	
 	<script type="text/javascript" src="<%=request.getContextPath() + "/restaurant/js/AddFoodJs.js"%>"></script>
+	
+	<%
+	if (request.getAttribute("errorMessage") != null) {
+	   String errorMessage = (String) request.getAttribute("errorMessage");
+	   request.removeAttribute("errorMessage");
+	%>
+	 <script>
+          showNotification("Error", "error", "<%=errorMessage%>");
+	</script>
+	<%
+	}
+	%>
+	
+	<%
+	if (request.getAttribute("successMessage") != null) {
+	   String Message = (String) request.getAttribute("successMessage");
+	   request.removeAttribute("successMessage");
+	%>
+	 <script>
+          showNotification("Success", "success", "<%=Message%>");
+	</script>
+	<%
+	}
+	%>
+	
+	
+	
 	
 </body>
 </html>

@@ -82,7 +82,7 @@ body {
 </head>
 <body>
 	<section class="center signin-section">
-		<form action="" method="post" id="signinForm">
+		<form action="<%=request.getContextPath()+"/restaurant/login" %>" method="post" id="signinForm">
 
 			<h4 class="text-center mb-3">Restaurant Login</h4>
 
@@ -114,5 +114,16 @@ body {
 	</section>
 	<script type="text/javascript"
 		src="<%=request.getContextPath() + "/restaurant/js/Login.js"%>"></script>
+		<%
+	if (request.getAttribute("errorMessage") != null) {
+		String errorMessage = (String) request.getAttribute("errorMessage");
+		request.removeAttribute("errorMessage");
+	%>
+	<script>
+    showNotification("Error", "error", "<%=errorMessage%>");
+	</script>
+	<%
+	}
+	%>
 </body>
 </html>

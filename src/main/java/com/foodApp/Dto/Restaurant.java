@@ -20,5 +20,6 @@ public class Restaurant
   private String OpeningHours;
   private Double rating;
   private Timestamp createdAt;
+  private String password;
   
 }

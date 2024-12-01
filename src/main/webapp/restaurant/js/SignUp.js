@@ -7,6 +7,8 @@ $(document).ready(function() {
 		const ele = $(".error")[i];
 		$(ele).hide()
 	}
+	
+	
 
 	function checkName() {
 		if ($("#name").val().trim() === "") {
@@ -109,46 +111,41 @@ $(document).ready(function() {
 				const ele = $("#password").siblings(".error")[0];
 				$(ele).text("Password must have 1 uppercase,1 lowercase,1 number,and 1 special Character.")
 				$(ele).show();
-				$("#password").addClass("input-error")
+				$("#password").addClass("input-error");
 				error = true;
 			}
 		}
 
 
 	}
-	
+
 	function checkCPassword() {
-		
-		
-		 if($("#cpassword").val().trim()==="")
-		 {
+
+
+		if ($("#cpassword").val().trim() === "") {
 			const ele = $("#cpassword").siblings(".error")[0];
-				$(ele).text("Please enter confirm password")
-				$(ele).removeClass("success")
-				$(ele).show();
-				$("#cpassword").addClass("input-error")
-				error = true;
-				console.log("Here1")
-		 }else{
-			if($("#password").val() !== $("#cpassword").val())
-			{
+			$(ele).text("Please enter confirm password")
+			$(ele).removeClass("success")
+			$(ele).show();
+			$("#cpassword").addClass("input-error")
+			error = true;
+		} else {
+			if ($("#password").val() !== $("#cpassword").val()) {
 				const ele = $("#cpassword").siblings(".error")[0];
 				$(ele).text("Password must match")
 				$(ele).removeClass("success")
 				$(ele).show();
 				$("#cpassword").addClass("input-error")
 				error = true;
-				console.log("Here2")
-			}else{
+			} else {
 				const ele = $("#cpassword").siblings(".error")[0];
 				$(ele).text("Password Matched")
 				$(ele).addClass("success")
 				$(ele).show();
 				$("#cpassword").removeClass("input-error")
 				error = false;
-				console.log("Here3")
 			}
-		 }
+		}
 	}
 
 
@@ -172,20 +169,20 @@ $(document).ready(function() {
 			checkAddress()
 		}
 	})
-	
+
 	$("#password").on('input', function() {
 		if (check) {
 			checkPassword()
 		}
 	})
 
-     $("#cpassword").on('input', function() {
+	$("#cpassword").on('input', function() {
 		if (check) {
 			checkCPassword()
 		}
 	})
 
-     
+
 
 	$("#mobile").keydown(function(e) {
 		let phno = document.getElementById("mobile");
@@ -213,19 +210,25 @@ $(document).ready(function() {
 	});
 
 
-    $("#register-btn").on('click',function(){
-		check = true;
-		checkName();
+	$("#register-btn").on('click',function() { // Check function parentheses
+		let check = true; // Missing semicolon fixed
+        $("#register-loading").removeClass("hidden")
+		// Validate form fields
+		checkName(); // Missing semicolon fixed
 		checkEmail();
 		checkMobile();
 		checkAddress();
 		checkPassword();
-		checkCPassword()
-		
-		if(!error)
-		{
-			$("#signupForm").submit()
+		checkCPassword();
+
+		if (!error) { // Correct condition check
+			
+		        $("#signupForm").submit();
 		}
-		
-	})
+	});
 })
+
+
+
+
+
