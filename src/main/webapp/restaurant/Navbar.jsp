@@ -154,7 +154,7 @@
 	<div class="menu center desktop-nav">
 		<ul class="center">
 			<a href="<%=request.getContextPath() + "/restaurant/Home.jsp"%>" class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Home") ? "active" : ""%>" ><li >Home</li></a>
-			<a class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active" : ""%>" ><li >Food Menu</li></a>
+			<a href="<%=request.getContextPath() + "/restaurant/AllFoodItems.jsp"%>" class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Food Menu") ? "active" : ""%>" ><li >Food Menu</li></a>
 			<a class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Orders") ? "active" : ""%>"><li >Orders</li></a>
 			<a class="<%=request.getAttribute("menu").toString().equalsIgnoreCase("Reviews") ? "active" : ""%>"><li >Reviews</li></a>
 		</ul>
